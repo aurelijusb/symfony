@@ -102,6 +102,7 @@ script:
 
     - composer install --no-progress --ansi
     - mkdir -p build/logs
+    - composer install -d src/Symfony/Component/CssSelector/
     - php ./vendor/bin/phpunit --config src/Symfony/Component/CssSelector/ --coverage-clover build/logs/clover.xml
 
 after_script:
