@@ -99,3 +99,10 @@ script:
     - if [[ $deps = low ]]; then echo "$COMPONENTS" | parallel --gnu -j10% 'cd {}; composer update --no-progress --ansi --prefer-lowest --prefer-stable; $PHPUNIT --exclude-group tty,benchmark,intl-data'; fi
     # Test the PhpUnit bridge using the original phpunit script
     - if [[ $deps = low ]]; then (cd src/Symfony/Bridge/PhpUnit && phpenv global 5.3 && php --version && composer update && phpunit); fi
+
+    - mkdir -p build/logs
+    - php ./vendor/bin/phpunit --config src/Symfony/Component/CssSelector/ --coverage-clover build/logs/clover.xml
+
+after_script:
+    - php vendor/bin/coveralls -v
+
