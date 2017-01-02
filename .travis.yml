@@ -100,6 +100,7 @@ script:
 #    # Test the PhpUnit bridge using the original phpunit script
 #    - if [[ $deps = low ]]; then (cd src/Symfony/Bridge/PhpUnit && phpenv global 5.3 && php --version && composer update && phpunit); fi
 
+    - composer update --no-progress --ansi
     - mkdir -p build/logs
     - php ./vendor/bin/phpunit --config src/Symfony/Component/CssSelector/ --coverage-clover build/logs/clover.xml
 
