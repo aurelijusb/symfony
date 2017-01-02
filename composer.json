@@ -74,7 +74,7 @@
         "symfony/var-dumper": "self.version",
         "symfony/web-profiler-bundle": "self.version",
         "symfony/workflow": "self.version",
-        "symfony/yaml": "3.2.0"
+        "symfony/yaml": "self.version"
     },
     "require-dev": {
         "cache/integration-tests": "dev-master",
