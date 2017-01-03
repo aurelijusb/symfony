@@ -11,6 +11,7 @@ addons:
         - language-pack-fr-base
         - ldap-utils
         - slapd
+        - jq
 
 #env:
 #    global:
@@ -101,9 +102,13 @@ script:
 #    - if [[ $deps = low ]]; then (cd src/Symfony/Bridge/PhpUnit && phpenv global 5.3 && php --version && composer update && phpunit); fi
 
     - mkdir -p build/logs
+    - mkdir -p build/humbug
     - composer global require "satooshi/php-coveralls=1.0.*"
     - composer update -d src/Symfony/Component/CssSelector/
     - php ./src/Symfony/Component/CssSelector/vendor/bin/phpunit --config src/Symfony/Component/CssSelector/ --coverage-clover build/logs/clover.xml
+    - cd src/Symfony/Component/CssSelector/ && php ./vendor/bin/humbug && cd ../../../../
 
 after_script:
     - ~/.composer/vendor/bin/coveralls -v
+    - cat build/humbug/humbuglog.txt
+    - cat build/humbug/humbuglog.json | jq -C '.'

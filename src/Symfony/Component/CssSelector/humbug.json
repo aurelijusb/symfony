@@ -1,0 +1,16 @@
+{
+    "source": {
+        "directories": [
+            "."
+        ],
+        "excludes": [
+            "Tests",
+            "vendor"
+        ]
+    },
+    "timeout": 3,
+    "logs": {
+        "text": "../../../../build/humbug/humbuglog.txt",
+        "json": "../../../../build/humbug/humbuglog.json"
+    }
+}
