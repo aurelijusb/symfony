@@ -1,6 +1,8 @@
 README
 ======
 
+[![Coverage Status](https://coveralls.io/repos/github/aurelijusb/symfony/badge.svg?branch=mutation-testing)](https://coveralls.io/github/aurelijusb/symfony?branch=mutation-testing)
+
 What is Symfony?
 -----------------
 
