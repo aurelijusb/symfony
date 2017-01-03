@@ -100,11 +100,10 @@ script:
 #    # Test the PhpUnit bridge using the original phpunit script
 #    - if [[ $deps = low ]]; then (cd src/Symfony/Bridge/PhpUnit && phpenv global 5.3 && php --version && composer update && phpunit); fi
 
-    - composer install --no-progress --ansi
     - mkdir -p build/logs
-    - composer install -d src/Symfony/Component/CssSelector/
-    - php ./vendor/bin/phpunit --config src/Symfony/Component/CssSelector/ --coverage-clover build/logs/clover.xml
+    - composer global require "satooshi/php-coveralls=1.0.*"
+    - composer update -d src/Symfony/Component/CssSelector/
+    - php ./src/Symfony/Component/CssSelector/vendor/bin/phpunit --config src/Symfony/Component/CssSelector/ --coverage-clover build/logs/clover.xml
 
 after_script:
-    - php vendor/bin/coveralls -v
-
+    - ~/.composer/vendor/bin/coveralls -v

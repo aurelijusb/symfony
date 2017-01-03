@@ -22,6 +22,9 @@
     "require": {
         "php": ">=5.5.9"
     },
+    "require-dev": {
+        "phpunit/phpunit": "5.7.5"
+    },
     "autoload": {
         "psr-4": { "Symfony\\Component\\CssSelector\\": "" },
         "exclude-from-classmap": [
